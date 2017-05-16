@@ -31,9 +31,8 @@ function addMatrixElements(matrix) {
   var result = 0;
 
   for(var i = 0; i < matrix.length; i++) {
-    /* fix counter variables in the second loop */
-    for(var i = 0; i < matrix[i].length; i++) {
-      result = result + matrix[i][i];
+    for(var k = 0; k < matrix[i].length; k++) {
+      result += matrix[i][k];
     }
   }
   return result;
@@ -47,7 +46,7 @@ function sendDataToClient() {
   var userObject = {
     handle: 'neo',
     authenticated: false
-  }
+  };
 
   function authenticateUser(obj, username) {
     var userObject = {
@@ -57,11 +56,11 @@ function sendDataToClient() {
 
     if (userObject.handle === username) {
       userObject.authenticated = true;
-      return userObject
+      return userObject;
     } else {
-      return userObject
+      return userObject;
     }
   }
-  authenticateUser(userObject, 'neo')
-  return userObject
+  authenticateUser(userObject, 'neo');
+  return userObject;
 }
